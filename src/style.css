@@ -1,16 +1,35 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:800|Roboto);
-
 body {
-  font-family: 'Roboto';
-  background-color: #f8f8f8;
-  color: #555;
+  color: #d62b1e;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  background: #dbdbd5;
 }
 
-.city {
+a {
+  text-decoration: underline;
+  color: #d62b1e;
+}
+
+
+form {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  box-shadow: 7px 7px 0px -2px #d62b1e,
+              -7px -7px 0px -2px #d62b1e;
+}
+
+form input {
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  background: #dbdbd5;
+  border: none;
+  text-align: center;
+  padding: 5% 0px;
+}
+
+.title {
   display: flex;
-  align-items: center;
-}
-
-.icon {
-  width: 50px;
 }

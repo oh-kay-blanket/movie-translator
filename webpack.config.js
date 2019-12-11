@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Welcome',
+      title: 'Movie Titles in Japanese',
       template: "./src/index.html",
       filename: "./index.html"
     }),
