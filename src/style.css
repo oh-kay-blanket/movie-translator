@@ -10,6 +10,16 @@ a {
   color: #d62b1e;
 }
 
+select {
+  color: #d62b1e;
+  background: #dbdbd5;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+  border: none;
+  border-bottom: solid 3px #d62b1e;
+}
+
 
 form {
   margin: 0 auto;
