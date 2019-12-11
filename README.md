@@ -1,2 +1,2 @@
-# React Template
-A template for building a react app, setup with Webpack and modules for handling .csv files, images, and fonts.
+# Movie Titles in Japanese
+An app which will search for movie titles, and return the title in Japanese
