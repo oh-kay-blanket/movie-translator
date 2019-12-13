@@ -67,11 +67,16 @@ const App = () => {
           fetch(altTitleURL)
             .then(altTitleResponse => altTitleResponse.json())
             .then(altTitleData => {
+              console.log(altTitleData)
               if (altTitleData.translations.translations.some(translation => translation.iso_3166_1 === language.code)) {
                 altTitleData.translations.translations.forEach(translation => {
                   if (translation.iso_3166_1 === language.code) {
+                    if (translation.data.title !== "") {
+                      setmovieDBTRResult(translation.data.title);
+                    } else {
+                      setmovieDBTRResult(`No ${language.name} title found`);
+                    }
                     setMovieDBOriginalResult(altTitleData.title);
-                    setmovieDBTRResult(translation.data.title);
                     setLoading(false);
                   }
                 })

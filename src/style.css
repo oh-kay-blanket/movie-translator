@@ -6,8 +6,13 @@ body {
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
+  font-style: italic;
   color: #d62b1e;
+}
+
+a:hover {
+  font-weight: bolder;
 }
 
 select {
@@ -42,4 +47,9 @@ input {
 
 .title {
   display: flex;
+}
+
+.return-title {
+  /* font-style: italic; */
+  /* font-weight: 500; */
 }

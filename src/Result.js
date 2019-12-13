@@ -4,8 +4,8 @@ const Result = props => {
 
   return (
   <div className="results box">
-    <p>Original Title: <b><em>{props.loading ? 'searching...' : props.movieDBOriginalResult}</em></b></p>
-    <p>{props.language.name} Title: <b><em>{props.loading ? 'searching...' : props.movieDBTRResult}</em></b></p>
+    <h4>Original: <span className="return-title">{props.loading ? 'searching...' : props.movieDBOriginalResult}</span></h4>
+    <h4>{props.language.name}: <span className="return-title">{props.loading ? 'searching...' : props.movieDBTRResult}</span></h4>
     <br/>
     <p>Data provided by&nbsp;
       <a href="https://www.themoviedb.org/">The Movie Database</a>
