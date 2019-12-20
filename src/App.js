@@ -4,8 +4,9 @@ import Result from './Result';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState({name: "Japanese", code: "JP", key: 11});
+  const [language, setLanguage] = useState({name: "日本語", engName: "Japanese", code: "JP", key: 11});
   const [query, setQuery] = useState('');
+  const [topHits, setTopHits] = useState(["Star Wars IV", "Star Wars V"]);
   const [movieDBOriginalResult, setMovieDBOriginalResult] = useState('Nothing yet');
   const [movieDBTRResult, setmovieDBTRResult] = useState('Nothing yet');
 
@@ -42,15 +43,16 @@ const App = () => {
     {name: "Український", engName: "Ukranian", code: "UK"},
   ];
 
+  const handleLanguage = event => {
+    const target = event.target;
+    setLanguage(languageList[target.value]);
+  }
+
+
   const handleInput = event => {
     const target = event.target;
     setLoading(true);
     setQuery(target.value);
-  }
-
-  const handleLanguage = event => {
-    const target = event.target;
-    setLanguage(languageList[target.value]);
   }
 
   // MOVIEDB
@@ -65,17 +67,25 @@ const App = () => {
       fetch(url)
         .then(response => response.json())
         .then(data => {
+          // Setup input datalist
+          setTopHits(data.results.slice(0, 5).map(hit => hit.title))
+
           // Use first result
           const movieID     = data.results[0].id;
           const altTitleURL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=09bef58264dfd94d2a9fc4dcd061da8f&append_to_response=translations`;
 
+          // Get tanslations array from top hit
           fetch(altTitleURL)
             .then(altTitleResponse => altTitleResponse.json())
             .then(altTitleData => {
-              console.log(altTitleData)
+              // Does translation exist for selected language?
               if (altTitleData.translations.translations.some(translation => translation.iso_3166_1 === language.code)) {
+
+                // Find matching language
                 altTitleData.translations.translations.forEach(translation => {
                   if (translation.iso_3166_1 === language.code) {
+
+                    // Title not empty
                     if (translation.data.title !== "") {
                       setmovieDBTRResult(translation.data.title);
                     } else {
@@ -85,18 +95,22 @@ const App = () => {
                     setLoading(false);
                   }
                 })
+
+              // No translation for that lang
               } else {
                 setMovieDBOriginalResult(altTitleData.title);
                 setmovieDBTRResult(`No ${language.name} title found`);
                 setLoading(false);
               }
             })
+            // No film found
             .catch(altTitleErr => {
               setMovieDBOriginalResult(`No ${language.name} title found`);
               setmovieDBTRResult(`No ${language.name} title found`);
               setLoading(false);
             })
         })
+        // No film found
         .catch(err => {
           setMovieDBOriginalResult('No title found');
           setmovieDBTRResult('No title found');
@@ -111,6 +125,7 @@ const App = () => {
         language={language}
         languageList={languageList}
         query={query}
+        topHits={topHits}
         handleLanguage={handleLanguage}
         handleInput={handleInput}
       />
