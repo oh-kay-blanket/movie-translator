@@ -4,37 +4,42 @@ import Result from './Result';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState({name: "Japanese", code: "JP", key: 10});
+  const [language, setLanguage] = useState({name: "Japanese", code: "JP", key: 11});
   const [query, setQuery] = useState('');
   const [movieDBOriginalResult, setMovieDBOriginalResult] = useState('Nothing yet');
   const [movieDBTRResult, setmovieDBTRResult] = useState('Nothing yet');
 
   const languageList = [
-    {name: "Bulgarian", code: "BG"},
-    {name: "Czech", code: "CZ"},
-    {name: "Danish", code: "DK"},
-    {name: "Dutch", code: "NL"},
-    {name: "French", code: "FR"},
-    {name: "German", code: "DE"},
-    {name: "Greek", code: "GR"},
-    {name: "Hebrew", code: "IL"},
-    {name: "Italian", code: "IT"},
-    {name: "Norwegian", code: "NO"},
-    {name: "Japanese", code: "JP"},
-    {name: "Mandarin (China)", code: "CN"},
-    {name: "Mandarin (Hong Kong)", code: "HK"},
-    {name: "Spanish", code: "ES"},
-    {name: "Persian", code: "IR"},
-    {name: "Polish", code: "PL"},
-    {name: "Portuguese (Brazil)", code: "BR"},
-    {name: "Portuguese (Portugal)", code: "PT"},
-    {name: "Russian", code: "RU"},
-    {name: "Slovak", code: "SK"},
-    {name: "Serbian", code: "RS"},
-    {name: "Swedish", code: "SE"},
-    {name: "Thai", code: "TH"},
-    {name: "Turkish", code: "TR"},
-    {name: "Ukranian", code: "UK"},
+    {name: "Bahasa indonesia", engName: "Indonesian", code: "ID"},
+    {name: "български език", engName: "Bulgarian", code: "BG"},
+    {name: "Český", engName: "Czech", code: "CZ"},
+    {name: "Dansk", engName: "Danish", code: "DK"},
+    {name: "Deutsch", engName: "German", code: "DE"},
+    {name: "English", engName: "English", code: "US"},
+    {name: "Español", engName: "Spanish", code: "ES"},
+    {name: "Français", engName: "French", code: "FR"},
+    {name: "ελληνικά", engName: "Greek", code: "GR"},
+    {name: "עִבְרִית", engName: "Hebrew", code: "IL"},
+    {name: "Italiano", engName: "Italian", code: "IT"},
+    {name: "日本語", engName: "Japanese", code: "JP"},
+    {name: "조선말", engName: "Korean", code: "KR"},
+    {name: "普通话 (CN)", engName: "Mandarin (CN)", code: "CN"},
+    {name: "普通话 (TW)", engName: "Mandarin (TW)", code: "TW"},
+    {name: "Nederlands", engName: "Dutch", code: "NL"},
+    {name: "Norsk", engName: "Norwegian", code: "NO"},
+    {name: "فارسی", engName: "Persian", code: "IR"},
+    {name: "Polski", engName: "Polish", code: "PL"},
+    {name: "Português (BR)", engName: "Portuguese (BR)", code: "BR"},
+    {name: "Português (PT)", engName: "Portuguese (PT)", code: "PT"},
+    {name: "Pусский", engName: "Russian", code: "RU"},
+    {name: "Română", engName: "Romanian", code: "RO"},
+    {name: "Slovenčina", engName: "Slovak", code: "SK"},
+    {name: "Srpski", engName: "Serbian", code: "RS"},
+    {name: "Suomi", engName: "Finnish", code: "FI"},
+    {name: "Svenska", engName: "Swedish", code: "SE"},
+    {name: "ภาษาไทย", engName: "Thai", code: "TH"},
+    {name: "Türkçe", engName: "Turkish", code: "TR"},
+    {name: "Український", engName: "Ukranian", code: "UK"},
   ];
 
   const handleInput = event => {
