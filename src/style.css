@@ -5,14 +5,24 @@ body {
   background: #dbdbd5;
 }
 
-a {
-  text-decoration: none;
-  font-style: italic;
-  color: #d62b1e;
+#root {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
 }
 
-a:hover {
-  font-weight: bolder;
+@media (min-width: 900px) {
+  #root {
+    width: 600px;
+  }
+}
+
+a {
+  color: #d62b1e;
+  text-align: center;
+  margin: 1rem;
 }
 
 select {
@@ -52,4 +62,13 @@ input {
 .return-title {
   /* font-style: italic; */
   /* font-weight: 500; */
+}
+
+
+#links {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
 }
